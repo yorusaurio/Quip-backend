@@ -283,7 +283,7 @@ public class UserController {
         verificationTokenRepository.save(verificationToken);
 
         // Enviar correo con el enlace de verificación
-        String verificationLink = "http://localhost:8080/api/users/verify?token=" + token;
+        String verificationLink = "https://quip-backend.onrender.com/api/users/verify?token=" + token;
         emailService.sendVerificationEmail(user.getEmail(), verificationLink);
 
         long tokensEnCirculacion = sistemaConfig.getTokensIniciales() - bovedaCero.getTokens();
