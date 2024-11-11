@@ -19,7 +19,7 @@ public class ChatController {
     private ChatService chatService;
 
     // Crear o obtener una conversación
-    @CrossOrigin(origins = "*") // O especifica el origen permitido
+
     @PostMapping("/conversation")
     public ResponseEntity<Conversation> createOrGetConversation(@RequestParam Long user1Id, @RequestParam Long user2Id) {
         Conversation conversation = chatService.getOrCreateConversation(user1Id, user2Id);
@@ -33,7 +33,7 @@ public class ChatController {
     }
 
     // Enviar un mensaje
-    @CrossOrigin(origins = "*") // O especifica el origen permitido
+
     @PostMapping("/sendMessage")
     public ResponseEntity<Message> sendMessage(@RequestBody SendMessageRequest request) {  // Cambia a @RequestBody
         Message message = chatService.sendMessage(request.getSenderId(), request.getReceiverId(), request.getContent(), request.getConversationId());
@@ -41,7 +41,7 @@ public class ChatController {
     }
 
     // Obtener todos los mensajes de una conversación
-    @CrossOrigin(origins = "*") // O especifica el origen permitido
+
     @GetMapping("/conversation/{conversationId}/messages")
     public ResponseEntity<List<Message>> getConversationMessages(@PathVariable Long conversationId) {
         List<Message> messages = chatService.getConversationMessages(conversationId);

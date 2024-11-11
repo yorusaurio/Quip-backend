@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/news")
-@CrossOrigin(origins = "*")
 public class NewsController {
 
     @Autowired
