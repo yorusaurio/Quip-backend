@@ -29,7 +29,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@CrossOrigin(origins = "*") // O especifica el origen permitido
+
 @RestController
 @RequestMapping("/api/users")
 @Tag(name = "User", description = "API para gestionar usuarios")
@@ -74,7 +74,6 @@ public class UserController {
 
 
     // Endpoint de login
-    @CrossOrigin(origins = "*") // O especifica el origen permitido
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody LoginRequest request) {
         Optional<User> userOptional = userRepository.findByUsername(request.getUsername());
@@ -99,7 +98,7 @@ public class UserController {
         }
     }
 
-    @CrossOrigin(origins = "*")
+
     @GetMapping("/me")
     public ResponseEntity<?> getMyUserInfo(@RequestHeader("Authorization") String token) {
         try {
@@ -174,7 +173,6 @@ public class UserController {
     }
 
     // Crear un nuevo usuario
-    @CrossOrigin(origins = "*") // O especifica el origen permitido
     @PostMapping
     public ResponseEntity<String> createUser(@RequestBody CreateUserRequest request) {
 
@@ -384,7 +382,6 @@ public class UserController {
 
 
     @GetMapping("/verify")
-    @CrossOrigin(origins = "*")
     public ResponseEntity<?> verifyUser(@RequestParam("token") String token) {
         Optional<VerificationToken> verificationTokenOpt = verificationTokenRepository.findByToken(token);
 
