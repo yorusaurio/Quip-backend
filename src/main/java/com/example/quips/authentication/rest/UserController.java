@@ -281,7 +281,7 @@ public class UserController {
         verificationTokenRepository.save(verificationToken);
 
         // Enviar correo con el enlace de verificación
-        String verificationLink = "https://quip-backend-production.up.railway.app/api/users/verify?token=" + token;
+        String verificationLink = "https://quips-backend-production.up.railway.app/api/users/verify?token=" + token;
         emailService.sendVerificationEmail(user.getEmail(), verificationLink);
 
         long tokensEnCirculacion = sistemaConfig.getTokensIniciales() - bovedaCero.getTokens();
